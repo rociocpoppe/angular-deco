@@ -10,26 +10,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><img [src]="products.imagen" alt="products.nombre"></td>
-            <td>{{products.nombre}}</td>
-            <td>{{products.tipo}}</td>
-            <td>{{products.precio}}</td>
-            <td>{{products.stock}}</td>
+        <tr *ngFor="let product of products" [ngClass]="{'liquidacion': product.liquidacion}">
+            <td><img [src]="product.imagen" alt="product.nombre"></td>
+            <td>{{product.nombre | uppercase}}</td>
+            <td>{{product.tipo}}</td>
+            <td>{{product.precio | currency}}</td>
+            <td><span class="badge badge-danger" *ngIf="product.stock==0">SIN STOCK</span></td>
         </tr>
-        <tr>
-            <td><img [src]="products2.imagen" alt="products2.nombre"></td>
-            <td>{{products2.nombre}}</td>
-            <td>{{products2.tipo}}</td>
-            <td>{{products2.precio}}</td>
-            <td>{{products2.stock}}</td>
-        </tr>
-        <tr>
-            <td><img [src]="products3.imagen" alt="products3.nombre"></td>
-            <td>{{products3.nombre}}</td>
-            <td>{{products3.tipo}}</td>
-            <td>{{products3.precio}}</td>
-            <td>{{products3.stock}}</td>
-        </tr>
+
     </tbody>
 </table>
