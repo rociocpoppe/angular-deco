@@ -7,7 +7,7 @@ import { DecoProductsComponent } from './deco-products/deco-products.component';
 const routes: Routes = [
   {
     path:'',
-    redirectTo:'beers',
+    redirectTo:'products',
     pathMatch:'full'
   },
   {

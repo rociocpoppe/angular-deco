@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductCarritoService } from '../product-carrito.service';
 import { Product} from './Product';
 
 @Component({
@@ -15,7 +16,8 @@ export class ProductsListComponent implements OnInit {
       tipo: "Sunscreen",
       precio:2500,
       stock: 0,
-      liquidacion: true
+      liquidacion: false,
+      cantidad: 0
     },
     {
       imagen: "assets/img/blackout.jpeg",
@@ -24,6 +26,7 @@ export class ProductsListComponent implements OnInit {
       precio:2000,
       stock: 10,
       liquidacion: false,
+      cantidad: 0
     },
     {
       imagen: "assets/img/respaldos.jpeg",
@@ -31,15 +34,32 @@ export class ProductsListComponent implements OnInit {
       tipo: "Capitone",
       precio:10000,
       stock: 10,
-      liquidacion: true
+      liquidacion: true,
+      cantidad: 0
     },
   
   ];
+  
 
   
-  constructor() { }
+  constructor(private carrito: ProductCarritoService) {
+   
+   }
 
   ngOnInit(): void {
   }
+
+  maxAlcanzado(m:string){
+    alert(m);
+  }
+
+  addToCarrito(product):void{
+    this.carrito.addToCarrito(product); 
+    console.log("antes de la compra"+product.stock);
+    product.stock -=product.cantidad;
+    console.log("despues de la compra"+product.stock);
+    product.cantidad=0;
+  }
+  
 
 }

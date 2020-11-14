@@ -1,4 +1,6 @@
-
+<div class="container">
+    <h3>Lista productos</h3>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -7,15 +9,23 @@
             <th>Tipo</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Cantidad</th>
+            <th>Compra</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let product of products" [ngClass]="{'liquidacion': product.liquidacion}">
-            <td><img [src]="product.imagen" alt="product.nombre"></td>
+            <td><img class="img-thumbnail"[src]="product.imagen" alt="product.nombre"></td>
             <td>{{product.nombre | uppercase}}</td>
             <td>{{product.tipo}}</td>
             <td>{{product.precio | currency}}</td>
             <td><span class="badge badge-danger" *ngIf="product.stock==0">SIN STOCK</span></td>
+            <td>
+                <app-input-integer [(cantidad)]="product.cantidad"  [max]="product.stock" *ngIf="product.stock" (maxAlcanzado)="maxAlcanzado($event)"></app-input-integer>
+            </td>
+            <td>
+                <button class="btn btn-info" (click)="addToCarrito(product)">Comprar</button>
+            </td>
         </tr>
 
     </tbody>

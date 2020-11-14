@@ -7,6 +7,8 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { DecoAboutComponent } from './deco-about/deco-about.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { DecoProductsComponent } from './deco-products/deco-products.component';
+import { InputIntegerComponent } from './input-integer/input-integer.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { DecoProductsComponent } from './deco-products/deco-products.component';
     ProductsListComponent,
     DecoAboutComponent,
     CarritoComponent,
-    DecoProductsComponent
+    DecoProductsComponent,
+    InputIntegerComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

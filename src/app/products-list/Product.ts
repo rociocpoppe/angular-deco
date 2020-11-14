@@ -5,6 +5,7 @@ export interface Product{
     tipo: string,
     precio:number,
     stock:number,
-    liquidacion: boolean
+    liquidacion: boolean,
+    cantidad: number
    
 }
