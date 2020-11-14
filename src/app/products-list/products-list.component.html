@@ -15,7 +15,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let product of products" [ngClass]="{'liquidacion': product.liquidacion}">
-            <td><img class="img-thumbnail"[src]="product.imagen" alt="product.nombre"></td>
+            <td><img [src]="product.imagen" alt="product.nombre"></td>
             <td>{{product.nombre | uppercase}}</td>
             <td>{{product.tipo}}</td>
             <td>{{product.precio | currency}}</td>
